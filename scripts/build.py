@@ -135,6 +135,7 @@ def render_stats(beers: list[dict]) -> str:
     total = len(beers)
     avg = sum(b["rating"] for b in beers) / total if total else 0
     good = sum(1 for b in beers if b["rating"] >= 4)
+    five = sum(1 for b in beers if b["rating"] == 5)
 
     by_style: dict[str, list[int]] = defaultdict(list)
     for beer in beers:
@@ -150,7 +151,7 @@ def render_stats(beers: list[dict]) -> str:
 
     return "\n".join(
         [
-            f"共 **{total}** 款 · 平均 **{avg:.1f}** 星 · 好评（≥4★）**{good}** 款",
+            f"共 **{total}** 款 · 平均 **{avg:.1f}** 星 · 好评（≥4★）**{good}** 款 · 满分 **{five}** 款",
             "",
             *rows,
         ]

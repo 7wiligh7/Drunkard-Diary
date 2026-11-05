@@ -303,7 +303,7 @@ beers:
     abv: null
     plato: null
     price: 4
-    rating: 4
+    rating: 5
     tags: [果味, 甘草]
     notes: "果味，甘草味，好喝，贵。"
 
@@ -315,7 +315,7 @@ beers:
     abv: null
     plato: null
     price: 3
-    rating: 4
+    rating: 5
     tags: [百香果, 清爽, 气泡]
     notes: "百香果味，清爽，气泡。"
 
@@ -423,7 +423,7 @@ beers:
     abv: null
     plato: null
     price: 3
-    rating: 4
+    rating: 5
     tags: [白啤, 泡沫密]
     notes: "白啤，好喝，泡沫密，小贵。"
 
@@ -507,7 +507,7 @@ beers:
     abv: null
     plato: null
     price: 3
-    rating: 4
+    rating: 5
     tags: [黑啤, 坚果, 巧克力, 泡沫绵密]
     notes: "黑啤，坚果巧克力，回味微苦，泡沫绵密。"
 
