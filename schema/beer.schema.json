@@ -55,8 +55,9 @@
           "minimum": 0,
           "maximum": 40
         },
-        "price": {
-          "enum": [1, 2, 3, null]
+        "price_cny": {
+          "type": ["string", "null"],
+          "pattern": "^\\d+(?:\\.\\d+)?-\\d+(?:\\.\\d+)?$"
         },
         "rating": {
           "type": "integer",
