@@ -109,7 +109,7 @@ beers:
     origin: 中国
     abv: null
     plato: null
-    price: 3
+    price: 2
     rating: 2
     tags: [泡沫绵密, 香精, 金属味]
     notes: "泡沫绵密，香精，金属味。"
@@ -302,7 +302,7 @@ beers:
     origin: 西班牙
     abv: null
     plato: null
-    price: 3
+    price: 4
     rating: 4
     tags: [果味, 甘草]
     notes: "果味，甘草味，好喝，贵。"
