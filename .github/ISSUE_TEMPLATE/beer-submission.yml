@@ -1,0 +1,74 @@
+name: 推荐一款酒 / 纠错
+description: 告诉我你喝到的味道，或者指出某条笔记的问题
+title: "[推荐] "
+labels: [submission]
+body:
+  - type: input
+    id: beer-name
+    attributes:
+      label: 酒名
+      placeholder: 例如：罗斯福8号
+    validations:
+      required: true
+
+  - type: input
+    id: brand
+    attributes:
+      label: 品牌 / 酒厂
+      placeholder: 例如：罗斯福 Rochefort
+
+  - type: dropdown
+    id: style
+    attributes:
+      label: 风格
+      options:
+        - 鲜啤 / 原浆
+        - 淡色拉格
+        - 黑拉格
+        - 皮尔森
+        - 小麦白啤
+        - 比利时白啤
+        - 比利时艾尔
+        - 修道院啤酒
+        - IPA
+        - 世涛 / 黑啤
+        - 酸啤 / 果啤
+        - 艾尔（其他）
+        - 无醇啤酒
+        - 不确定
+    validations:
+      required: true
+
+  - type: input
+    id: params
+    attributes:
+      label: 酒精度 / 麦汁浓度
+      placeholder: 例如 9.2% / 20°P，不知道就留空
+
+  - type: dropdown
+    id: rating
+    attributes:
+      label: 你会打几分
+      options:
+        - "5 - 会主动回购"
+        - "4 - 好喝，值得再买"
+        - "3 - 一般"
+        - "2 - 不太行"
+        - "1 - 踩雷"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 品鉴记录
+      description: 具体的味道，比如香气、苦度、气泡、回味，别只写「好喝」
+      placeholder: 入口偏甜，果香明显，收尾带一点酒花的苦……
+    validations:
+      required: true
+
+  - type: input
+    id: price
+    attributes:
+      label: 大致价格 / 购买渠道
+      placeholder: 例如：超市 12 元 / 某宝整箱

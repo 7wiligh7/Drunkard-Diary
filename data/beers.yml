@@ -1,0 +1,609 @@
+# yaml-language-server: $schema=../schema/beer.schema.json
+#
+# 啤酒品鉴数据。新增条目请参考 CONTRIBUTING.md。
+# 字段说明：
+#   id      唯一标识，小写英文 + 连字符
+#   name    啤酒名称
+#   brand   品牌 / 酒厂，可为空
+#   style   风格 key，取值见 scripts/build.py 里的 STYLES
+#   origin  产地，可为空
+#   abv     酒精度（%），未知写 null
+#   plato   原麦汁浓度（°P），未知写 null
+#   price   价格档位 1=平价 2=适中 3=偏贵，未知写 null
+#   rating  主观评分 1-5
+#   tags    风味关键词
+#   notes   品鉴记录原文
+
+version: 1
+
+beers:
+  # ---------- 国产 / 常见款 ----------
+  - id: yanjing-fresh
+    name: 燕京鲜啤
+    brand: 燕京
+    style: draft
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [龙眼]
+    notes: "龙眼味。"
+
+  - id: yanjing-u8
+    name: 燕京U8
+    brand: 燕京
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: []
+    notes: "一般。"
+
+  - id: zhujiang-1997
+    name: 珠江纯生1997
+    brand: 珠江
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [微苦, 麦芽]
+    notes: "一般，微苦，麦芽味。"
+
+  - id: zhujiang-1985
+    name: 珠江1985
+    brand: 珠江
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [麦芽, 全麦]
+    notes: "全麦香浓，好喝。"
+
+  - id: zhujiang-p9
+    name: 珠江P9
+    brand: 珠江
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [气泡多, 微咸]
+    notes: "气多，味道一般，微咸，刺激感。"
+
+  - id: snow
+    name: 雪花
+    brand: 雪花
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [微苦]
+    notes: "微苦。"
+
+  - id: snow-yongchuang
+    name: 勇闯天涯
+    brand: 雪花
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [咸]
+    notes: "咸。"
+
+  - id: xuebao-wheat
+    name: 雪堡精酿白啤
+    brand: 雪堡
+    style: wheat
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [泡沫绵密, 香精, 金属味]
+    notes: "泡沫绵密，香精，金属味。"
+
+  - id: laoshan
+    name: 崂山
+    brand: 崂山
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [淡]
+    notes: "淡。"
+
+  - id: tianyou-craft
+    name: 天优精酿
+    brand: 天优
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [麦芽]
+    notes: "麦芽味突出。"
+
+  - id: chongqing
+    name: 重庆啤酒
+    brand: 重庆
+    style: pale-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [清爽, 麦香, 酒花苦]
+    notes: "清爽，尾调的苦味短，麦香突出，中度酒感，喝到后面啤酒花的苦味突出，蓝带之上，青岛之下。"
+
+  - id: fulujia
+    name: 福鹿家
+    brand: 福鹿家
+    style: draft
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [鲜啤, 酒花苦, 柔]
+    notes: "鲜啤，酒花苦味明显，风味>酒味，柔。"
+
+  - id: fresh-30km
+    name: 鲜啤30公里
+    brand: 鲜啤30公里
+    style: draft
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [酒花, 麦芽, 气泡丰厚]
+    notes: "酒花麦芽香，气泡丰厚绵密。"
+
+  - id: jingdezhen-craft
+    name: 景德镇精酿
+    brand: 景德镇
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [果香]
+    notes: "果香，没什么刺激感，略有酒精味。"
+
+  - id: ole-heilager
+    name: ole 嘿嘿嘿黑拉格
+    brand: ole
+    style: dark-lager
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [低度, 焦糖]
+    notes: "低度，焦糖风味，低刺激感。"
+
+  - id: 711-craft
+    name: 711 精酿
+    brand: 7-Eleven
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [麦芽, 酒花, 高度]
+    notes: "纯正麦芽啤酒花味，高度，一瓶微醺。"
+
+  - id: crazy-tiger
+    name: 疯狂老虎
+    brand: 疯狂老虎
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [麦芽, 气泡少]
+    notes: "中规中矩入口淡，回味麦芽，气泡少。"
+
+  - id: jingpanda-wheat
+    name: 杰克熊猫（白啤）
+    brand: 杰克熊猫
+    style: wheat
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [清爽, 麦香, 花果]
+    notes: "清爽，好喝，麦香，花果调。"
+
+  - id: xujinhuan
+    name: 须尽欢
+    brand: 须尽欢
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [蜂蜜, 酒花, 苦]
+    notes: "轻微蜂蜜味，酒花味重，中度苦，回味苦。"
+
+  - id: wangjixian-dryhop
+    name: 沃集仙干投酒花
+    brand: 沃集仙
+    style: ale
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [酒花, 果香, 苦]
+    notes: "酒花调很明显，果香，刚开始苦味不明显，喝到后面苦味突出，入口是干啤酒的前调，但后调润。"
+
+  # ---------- 进口 / 精酿 ----------
+  - id: 1664-blanc
+    name: "1664"
+    brand: 凯旋1664
+    style: witbier
+    origin: 法国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [百香果]
+    notes: "百香果。"
+
+  - id: heineken
+    name: 喜力
+    brand: 喜力
+    style: pale-lager
+    origin: 荷兰
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [苦, 黑鸭味]
+    notes: "苦，黑鸭味。"
+
+  - id: heineken-silver
+    name: 喜力星银
+    brand: 喜力
+    style: pale-lager
+    origin: 荷兰
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [微咸, 气泡少]
+    notes: "没那么苦，微咸，气泡较少。"
+
+  - id: estrella-damm
+    name: 艾帝达姆大星
+    brand: 艾帝达姆
+    style: pale-lager
+    origin: 西班牙
+    abv: null
+    plato: null
+    price: 3
+    rating: 4
+    tags: [果味, 甘草]
+    notes: "果味，甘草味，好喝，贵。"
+
+  - id: corona
+    name: 科罗娜
+    brand: 科罗娜
+    style: pale-lager
+    origin: 墨西哥
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [百香果, 清爽, 气泡]
+    notes: "百香果味，清爽，气泡。"
+
+  - id: yebisu-ishii
+    name: 一番榨
+    brand: 麒麟
+    style: pale-lager
+    origin: 日本
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [回甘, 龙眼]
+    notes: "微苦，回甘，龙眼调。"
+
+  - id: yebisu-ishii-sugarfree
+    name: 一番榨（无糖）
+    brand: 麒麟
+    style: pale-lager
+    origin: 日本
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [气泡少]
+    notes: "无糖的气少一点。"
+
+  - id: budweiser-none
+    name: 百威无醇
+    brand: 百威
+    style: non-alcoholic
+    origin: 美国
+    abv: 0
+    plato: null
+    price: null
+    rating: 2
+    tags: [无醇, 番薯干]
+    notes: "不如青岛无醇。"
+
+  - id: tsingtao-none
+    name: 青岛无醇
+    brand: 青岛
+    style: non-alcoholic
+    origin: 中国
+    abv: 0
+    plato: null
+    price: null
+    rating: 3
+    tags: [无醇, 番薯干, 气泡少]
+    notes: "青岛无醇>百威无醇，更像啤酒，但有点番薯干后调，气少。"
+
+  - id: budweiser-jinzun
+    name: 百威金尊
+    brand: 百威
+    style: pale-lager
+    origin: 美国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [蜂蜜, 苦度低]
+    notes: "蜂蜜味，香，苦度低。"
+
+  - id: budweiser-heijin
+    name: 百威黑金
+    brand: 百威
+    style: dark-lager
+    origin: 美国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [蜂蜜, 苦度低]
+    notes: "蜂蜜味，香，苦度低。"
+
+  - id: carlsberg
+    name: 嘉士伯
+    brand: 嘉士伯
+    style: pale-lager
+    origin: 丹麦
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [清淡, 顺滑]
+    notes: "清单不苦，夯，顺滑润。"
+
+  - id: kaiser-wheat
+    name: 凯撒王白啤
+    brand: 凯撒王
+    style: wheat
+    origin: 德国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [苦]
+    notes: "合格，苦。"
+
+  - id: hoegaarden-white
+    name: 福佳白啤
+    brand: 福佳
+    style: witbier
+    origin: 比利时
+    abv: null
+    plato: null
+    price: 3
+    rating: 4
+    tags: [白啤, 泡沫密]
+    notes: "白啤，好喝，泡沫密，小贵。"
+
+  - id: hoegaarden-rose
+    name: 福佳玫瑰红
+    brand: 福佳
+    style: witbier
+    origin: 比利时
+    abv: null
+    plato: null
+    price: 3
+    rating: 4
+    tags: [花果香, 甜而不腻]
+    notes: "甜而不腻，花果香，回味微弱的麦芽味，适合女士。"
+
+  - id: white-bear
+    name: 白熊
+    brand: 白熊
+    style: witbier
+    origin: 比利时
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [苦, 比利时风味]
+    notes: "苦，常规比利时风味。"
+
+  - id: rochefort-10
+    name: 罗斯福10号
+    brand: 罗斯福
+    style: trappist
+    origin: 比利时
+    abv: 11.3
+    plato: 22
+    price: 3
+    rating: 3
+    tags: [比利时风味, 超苦, 酒体浑浊]
+    notes: "22麦芽11酒精，前调比利时啤酒风味，尾调超苦，酒体浑浊，气泡感少。"
+
+  - id: paulaner-wheat-light
+    name: 保拉纳小麦（清爽型）
+    brand: 保拉纳
+    style: wheat
+    origin: 德国
+    abv: 3.0
+    plato: 8
+    price: null
+    rating: 3
+    tags: [清爽, 苦味低, 解渴]
+    notes: "8麦芽3酒精，清爽，酒感苦味低，适合解渴，刚接触的喝。"
+
+  - id: chang-beer
+    name: 泰象
+    brand: 泰象
+    style: pale-lager
+    origin: 泰国
+    abv: null
+    plato: null
+    price: null
+    rating: 1
+    tags: [淡, 微苦, 泡沫大]
+    notes: "泰国啤酒，不好喝，淡，有一股小巷子的味道，微苦，泡沫大，打嗝停冲。"
+
+  - id: blue-girl
+    name: 蓝妹
+    brand: 蓝妹
+    style: pale-lager
+    origin: 韩国
+    abv: null
+    plato: null
+    price: 3
+    rating: 3
+    tags: [气泡绵密, 苦味低, 清新]
+    notes: "普通，气泡绵密，苦味低，贵，清新。"
+
+  - id: guinness
+    name: 健力士
+    brand: 健力士
+    style: stout
+    origin: 爱尔兰
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [黑啤, 坚果, 巧克力, 泡沫绵密]
+    notes: "黑啤，坚果巧克力，回味微苦，泡沫绵密。"
+
+  - id: lindemans-kriek
+    name: 林德曼樱桃啤酒
+    brand: 林德曼
+    style: sour
+    origin: 比利时
+    abv: null
+    plato: null
+    price: 3
+    rating: 3
+    tags: [酸, 樱桃, 气泡足]
+    notes: "酸，樱桃味重，气泡很足，贵，量少，好喝，但不值这个价。"
+
+  - id: asahi
+    name: 朝日
+    brand: 朝日
+    style: pale-lager
+    origin: 日本
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [酒花]
+    notes: "酒花味足。"
+
+  - id: goose-island-cold-brew-ipa
+    name: 鹅岛冷萃印度浅色艾尔
+    brand: 鹅岛
+    style: ipa
+    origin: 美国
+    abv: null
+    plato: null
+    price: null
+    rating: 4
+    tags: [酒花, 浓, 清爽]
+    notes: "独特酒花味，浓但不苦，清爽。"
+
+  - id: war-god-stout
+    name: 战神世涛
+    brand: 战神
+    style: stout
+    origin: 中国
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [黑啤, 咖啡, 酒花]
+    notes: "黑啤，咖啡酒花。"
+
+  - id: red-duke
+    name: 红爵啤酒（喜力）
+    brand: 喜力
+    style: pale-lager
+    origin: 荷兰
+    abv: null
+    plato: null
+    price: null
+    rating: 2
+    tags: [气泡粗, 酒花, 酒感重]
+    notes: "气泡粗，少，酒感较重，主要是酒花味。"
+
+  # ---------- 风格速记（非单一酒款） ----------
+  - id: style-dark-beer
+    name: 黑啤（风格速记）
+    brand: null
+    style: stout
+    origin: null
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [咖啡, 焦糖, 高度]
+    notes: "酒花的苦，咖啡和焦糖味，度数高，晕的快。"
+
+  - id: style-fruit-ale
+    name: 果泥艾尔（风格速记）
+    brand: null
+    style: sour
+    origin: null
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [果泥, 醇厚, 酸, 气泡细]
+    notes: "醇厚，没有酒精感，后面果泥很多，气泡细，不多，不刺激，酸是真酸。"
+
+  - id: style-ipa
+    name: IPA（风格速记）
+    brand: null
+    style: ipa
+    origin: null
+    abv: null
+    plato: null
+    price: null
+    rating: 3
+    tags: [酒花, 苦]
+    notes: "酒花味突出，苦。"

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "啤酒品鉴数据",
+  "type": "object",
+  "required": ["beers"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "beers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/beer" }
+    }
+  },
+  "$defs": {
+    "beer": {
+      "type": "object",
+      "required": ["id", "name", "style", "rating", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "brand": { "type": ["string", "null"] },
+        "style": {
+          "enum": [
+            "draft",
+            "pale-lager",
+            "dark-lager",
+            "pilsner",
+            "wheat",
+            "witbier",
+            "belgian-ale",
+            "trappist",
+            "ipa",
+            "stout",
+            "sour",
+            "ale",
+            "non-alcoholic"
+          ]
+        },
+        "origin": { "type": ["string", "null"] },
+        "abv": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 80
+        },
+        "plato": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 40
+        },
+        "price": {
+          "enum": [1, 2, 3, null]
+        },
+        "rating": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "notes": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
