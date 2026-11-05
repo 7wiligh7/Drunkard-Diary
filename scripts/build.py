@@ -41,9 +41,9 @@ STYLES: dict[str, str] = {
 
 STYLE_ORDER = {key: i for i, key in enumerate(STYLES)}
 
-# 价格档位按单瓶参考价划分（人民币）：¥ ≤6，¥¥ 6-13，¥¥¥ >13
-PRICE_LABELS = {1: "¥", 2: "¥¥", 3: "¥¥¥"}
-PRICE_TIERS = ((6.0, 1), (13.0, 2))  # 上限价位 -> 档位
+# 价格档位按单瓶参考价划分（人民币）：¥ <5，¥¥ 5-10，¥¥¥ 10-20，¥¥¥¥ ≥20
+PRICE_LABELS = {1: "¥", 2: "¥¥", 3: "¥¥¥", 4: "¥¥¥¥"}
+PRICE_TIERS = ((5.0, 1), (10.0, 2), (20.0, 3))  # 中位数小于该值则归入该档
 PRICE_PATTERN = re.compile(r"^\d+(?:\.\d+)?-\d+(?:\.\d+)?$")
 
 REQUIRED_FIELDS = ("id", "name", "style", "rating", "notes")
@@ -138,9 +138,9 @@ def price_tier(price_cny: str | None) -> int | None:
     low, high = (float(x) for x in price_cny.split("-"))
     mid = (low + high) / 2
     for limit, tier in PRICE_TIERS:
-        if mid <= limit:
+        if mid < limit:
             return tier
-    return 3
+    return 4
 
 
 def price_label(price_cny: str | None) -> str:
