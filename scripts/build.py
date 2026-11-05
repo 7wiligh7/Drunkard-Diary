@@ -41,10 +41,8 @@ STYLES: dict[str, str] = {
 
 STYLE_ORDER = {key: i for i, key in enumerate(STYLES)}
 
-# 价格档位按单瓶参考价划分（人民币）：¥ <5，¥¥ 5-10，¥¥¥ 10-20，¥¥¥¥ ≥20
+# 单瓶价格档位：1=<5 元，2=5-10 元，3=10-20 元，4=≥20 元
 PRICE_LABELS = {1: "¥", 2: "¥¥", 3: "¥¥¥", 4: "¥¥¥¥"}
-PRICE_TIERS = ((5.0, 1), (10.0, 2), (20.0, 3))  # 中位数小于该值则归入该档
-PRICE_PATTERN = re.compile(r"^\d+(?:\.\d+)?-\d+(?:\.\d+)?$")
 
 REQUIRED_FIELDS = ("id", "name", "style", "rating", "notes")
 
@@ -97,16 +95,11 @@ def validate(beers: list[dict]) -> list[str]:
         if not isinstance(rating, int) or isinstance(rating, bool) or not 1 <= rating <= 5:
             errors.append(f"{where}: rating 必须是 1-5 的整数，当前为 {rating!r}")
 
-        price_cny = beer.get("price_cny")
-        if price_cny is not None:
-            if not isinstance(price_cny, str) or not PRICE_PATTERN.fullmatch(price_cny):
-                errors.append(
-                    f"{where}: price_cny 必须形如 \"8-12\" 的字符串或 null，当前为 {price_cny!r}"
-                )
-            else:
-                low, high = (float(x) for x in price_cny.split("-"))
-                if low > high:
-                    errors.append(f"{where}: price_cny 下限不能大于上限（{price_cny}）")
+        price = beer.get("price")
+        if price is not None and price not in PRICE_LABELS:
+            errors.append(
+                f"{where}: price 只能是 1 / 2 / 3 / 4 或 null，当前为 {price!r}"
+            )
 
         for field in ("abv", "plato"):
             value = beer.get(field)
@@ -131,23 +124,8 @@ def cell(value, empty: str = "—") -> str:
     return text
 
 
-def price_tier(price_cny: str | None) -> int | None:
-    """按单瓶参考价区间的中位数推导档位。"""
-    if not price_cny:
-        return None
-    low, high = (float(x) for x in price_cny.split("-"))
-    mid = (low + high) / 2
-    for limit, tier in PRICE_TIERS:
-        if mid < limit:
-            return tier
-    return 4
-
-
-def price_label(price_cny: str | None) -> str:
-    tier = price_tier(price_cny)
-    if tier is None:
-        return "—"
-    return f"{PRICE_LABELS[tier]} {price_cny}"
+def price_label(price: int | None) -> str:
+    return PRICE_LABELS.get(price, "—")
 
 
 
@@ -185,14 +163,14 @@ def render_table(beers: list[dict]) -> str:
         key=lambda b: (-b["rating"], STYLE_ORDER[b["style"]], b["name"]),
     )
     lines = [
-        "| 名称 | 风格 | 产地 | 酒精度 | 麦汁浓度 | 参考价（元/瓶） | 评分 | 风味关键词 | 品鉴笔记 |",
+        "| 名称 | 风格 | 产地 | 酒精度 | 麦汁浓度 | 价格档位 | 评分 | 风味关键词 | 品鉴笔记 |",
         "| --- | --- | --- | ---: | ---: | :---: | :---: | --- | --- |",
     ]
     for beer in ordered:
         origin = cell(beer.get("origin"))
         abv = "—" if beer.get("abv") is None else f"{beer['abv']}%"
         plato = "—" if beer.get("plato") is None else f"{beer['plato']}°P"
-        price = price_label(beer.get("price_cny"))
+        price = price_label(beer.get("price"))
         tags = "、".join(beer.get("tags") or []) or "—"
         lines.append(
             "| {name} | {style} | {origin} | {abv} | {plato} | {price} | {stars} | {tags} | {notes} |".format(

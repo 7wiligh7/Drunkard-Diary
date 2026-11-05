@@ -23,7 +23,7 @@ python scripts/build.py
     origin: 比利时
     abv: 9.2
     plato: 20
-    price_cny: "20-28"
+    price: 4
     rating: 4
     tags: [焦糖, 果香, 酒精感]
     notes: "入口偏甜，果香明显，收尾带一点酒花的苦，比10号好入口。"
@@ -40,7 +40,7 @@ python scripts/build.py
 | `origin` | | string \| null | 产地国家 / 地区 |
 | `abv` | | number \| null | 酒精度（%），只填包装标注值 |
 | `plato` | | number \| null | 原麦汁浓度（°P），只填包装标注值 |
-| `price_cny` | | string \| null | 单瓶参考价区间（元），形如 `"8-12"`；档位由脚本按中位数推导，不用手填 |
+| `price` | | 1 \| 2 \| 3 \| 4 \| null | 单瓶价格档位：1=<5 元，2=5-10 元，3=10-20 元，4=≥20 元 |
 | `rating` | ✅ | 1-5 | 主观评分 |
 | `tags` | | string[] | 风味关键词，2-5 个即可 |
 | `notes` | ✅ | string | 品鉴记录，用中文，写具体味道而不是「好喝」两个字 |
@@ -88,7 +88,7 @@ CI 会对每个 PR 跑同样的命令：
 - YAML 语法错误；
 - `id` 重复或格式不合法；
 - `rating` 不在 1-5；
-- `price_cny` 不是 `"8-12"` 这种格式；
+- `price` 不在 1-4；
 - 未知的 `style`；
 - README 忘记重新生成。
 
